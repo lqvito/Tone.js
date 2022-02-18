@@ -104,9 +104,9 @@ export class Param<TypeName extends UnitName = "number">
 
 		const options = optionsFromArguments(Param.getDefaults(), arguments, ["param", "units", "convert"]);
 
-		assert(isDefined(options.param) &&
-			(isAudioParam(options.param) || options.param instanceof Param), "param must be an AudioParam");
-
+		assert(isDefined(options.param), "param must defined!!!");
+		assert((isAudioParam(options.param) || options.param instanceof Param), "param must be an AudioParam !!!!!");
+		
 		while (!isAudioParam(options.param)) {
 			options.param = options.param._param;
 		}
